@@ -19,7 +19,8 @@ export class SingleHospitalViewComponent implements OnInit {
   url:any;
   constructor(public router: Router, public route: ActivatedRoute,private http: HttpClient) {
     
-    this.url = "http://localhost:3000/querySearch/singleHospital";
+    // this.url = "http://localhost:3000/querySearch/singleHospital";
+    this.url = "http://hospicheck.jyotsarup.wmdd.ca/querySearch/singleHospital";
     // this.department = [];
    }
 

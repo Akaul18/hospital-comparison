@@ -16,6 +16,7 @@ query1: String;
 query2: String;
 hospCheck: String;
 maindata: any;
+url:any;
 
 
   constructor(public router: Router, public route: ActivatedRoute, public http: HttpClient) {
@@ -23,9 +24,9 @@ maindata: any;
     this.query1= '';
 
     this.query2= '';
-this.hospCheck = '';
+    this.hospCheck = '';
     this.maindata='';
-
+    this.url = 'http://hospicheck.jyotsarup.wmdd.ca/searchQuery2';
    }
 
    compareTable: boolean;
@@ -53,7 +54,7 @@ this.hospCheck = '';
     }
     // console.log(hospCheck);
  
-    this.http.post("http://localhost:3000/searchQuery2", {searchcity1: query1.toString(), searchcity2: query2.toString(), hospCheck: hospCheck}).toPromise().then(data=>{
+    this.http.post(this.url, {searchcity1: query1.toString(), searchcity2: query2.toString(), hospCheck: hospCheck}).toPromise().then(data=>{
 
     console.log(hospCheck);  
     this.maindata = data;
