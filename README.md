@@ -1,3 +1,7 @@
+This application is built using MEAN stack. The backend of the application can be found in the other repository mentioned below:
+
+Backend of the MEAN stack application - https://github.com/Akaul18/hospital-comparison-backend
+
 # Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
