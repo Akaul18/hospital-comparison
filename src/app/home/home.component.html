@@ -1,57 +1,40 @@
-
 <div class="banner">
   <div class="container">
-  <h2 class="bannertext" >Find the right hospital. Get the best care</h2>
-  <!-- <h2 class="bannertext" >{{query1}} {{query2}}</h2> -->
+    <h2 class="bannertext">Find the right hospital. Get the best care</h2>
 
-  <div class="searchdiv">
+    <div class="searchdiv">
 
-    <div class="search1">
-      <div class="labelandtext">
-      <label for="SearchHospital" class="searchhospital"> Search department or procedure  </label>
-      <input type="text" id="searchinput" placeholder="(Optional)" [(ngModel)]="query1">
-    </div>
-      <!-- <select type="text" id="query1Select" multiple>
-      </select> -->
-      <!-- <form class="example-form">
-          <mat-form-field class="example-full-width">
-            <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let option of options" [value]="option">
-                {{option}}
-              </mat-option>
-            </mat-autocomplete>
-          </mat-form-field>
-        </form> -->
-    </div>
-    <div class="search2">
-      <label for="City" class="city"> Select City</label>
-      <!-- <input type="text" id="searchcity" [(ngModel)]="query2"><br> -->
-      <select name="city" id="searchcity" [(ngModel)]="query2">
-        <option value="all_cities">--Select all--</option>
-        <option value="Burnaby" selected="selected">Burnaby</option>
-        <option value="Vancouver">Vancouver</option>
-        <option value="Surrey">Surrey</option>
-        <option value="Richmond">Richmond</option>
-      </select>
-    </div>
+      <div class="search1">
+        <div class="labelandtext">
+          <label for="SearchHospital" class="searchhospital"> Search department or procedure </label>
+          <input type="text" id="searchinput" placeholder="(Optional)" [(ngModel)]="query1">
+        </div>
+      </div>
+      <div class="search2">
+        <label for="City" class="city"> Select City</label>
+        <!-- <input type="text" id="searchcity" [(ngModel)]="query2"><br> -->
+        <select name="city" id="searchcity" [(ngModel)]="query2">
+          <option value="all_cities">--Select all--</option>
+          <option value="Burnaby" selected="selected">Burnaby</option>
+          <option value="Vancouver">Vancouver</option>
+          <option value="Surrey">Surrey</option>
+          <option value="Richmond">Richmond</option>
+        </select>
+      </div>
 
-    <div class="hospclinicbtns">
-      <input type="radio" value="Hospital" name="checked" [(ngModel)]="radio1"> <span class="radiobtntxt">Hospital</span>
-      <input type="radio" value="Walk In Clinic" name="checked" #radio2> <span class="radiobtntxt">Walk In Clinic</span>
-    </div>
+      <div class="hospclinicbtns">
+        <input type="radio" value="Hospital" name="checked"> <span class="radiobtntxt">Hospital</span>
+        <input type="radio" value="Walk In Clinic" name="checked" #radio2> <span class="radiobtntxt">Walk In
+          Clinic</span>
+      </div>
 
-    <div class="searchbutton">
-    <button type="button" id="searchBtn" (click)="post()">SEARCH</button>
+      <div class="searchbutton">
+        <button type="button" id="searchBtn" (click)="post()">SEARCH</button>
+      </div>
+      <br>
+
+    </div>
   </div>
-  <br>
-    <!-- <div class="hospclinicbtns">
-      <input type="radio" value="Hospital" name="checked" [(ngModel)]="radio1"> <span class="radiobtntxt">Hospital</span>
-      <input type="radio" value="Walk In Clinic" name="checked" #radio2> <span class="radiobtntxt">Walk In Clinic</span>
-    </div> -->
-
-  </div>
-</div>
 
 </div>
 
@@ -75,9 +58,10 @@
       <div class="ratings">
         <img src="./assets/img/rating.png" alt="Ratings">
       </div>
-      <div class="reviewBody">Nothing unpleasant happened in five sessions that we had to be there and we received adequate level... Read More</div>
+      <div class="reviewBody">Nothing unpleasant happened in five sessions that we had to be there and we received
+        adequate level... Read More</div>
     </div>
-    </div>
+  </div>
 
 
 </div>
@@ -92,22 +76,21 @@
         <div class="centered">- Choosing the best hospital for you -</div>
       </div>
       <div class="reviewBody2">
-          A hospital comparison web app which compares treatments
-          at different hospitals and gives real user feedback.
-          This helps people by telling them about the best hospitals
-          for their illness so that they get the best treatment for their disease.<br><br>
+        A hospital comparison web app which compares treatments
+        at different hospitals and gives real user feedback.
+        This helps people by telling them about the best hospitals
+        for their illness so that they get the best treatment for their disease.<br><br>
 
-          Our web application is an easy solution for users to find the best
-          treatment available for them. It uses the real time patient’s feedback
-          dataset of various hospitals. Based on this user feedback,
-          our application lists the best treatments available to the user based on a search term.
+        Our web application is an easy solution for users to find the best
+        treatment available for them. It uses the real time patient’s feedback
+        dataset of various hospitals. Based on this user feedback,
+        our application lists the best treatments available to the user based on a search term.
       </div>
     </div>
 
   </div>
 
 
-  </div>
+</div>
 
-  <div class="diagonal-background"></div>
-
+<div class="diagonal-background"></div>

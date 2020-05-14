@@ -1,85 +1,66 @@
-
-
 <div class="btndiv">
-<button class="tablebtn searchbtn" id="searchbtn1" (click)="displayData1()"> Tabular </button>
-<button class="d3btn searchbtn" id="searchbtn2" (click)="displayData2()"> Graphical </button >
+  <!-- <button class="tablebtn searchbtn" id="searchbtn1" (click)="displayData1()"> Tabular </button> -->
+  <!-- <button class="d3btn searchbtn" id="searchbtn2" (click)="displayData2()"> Graphical </button> -->
 </div>
 <div class="Main-Compare">
 
   <div class="comparehosp" *ngIf="compareTable">
-<div class="hospdetailCard" *ngFor="let abc of maindata" >
-    <div class="hospName">
-      <h5>
-        <!-- Jim Pattison Outpatient Care
+    <div class="hospdetailCard" *ngFor="let abc of maindata">
+      <div class="hospName">
+        <h5>
+          <!-- Jim Pattison Outpatient Care
         and Surgery Centre -->
-        {{ abc.hospName }}{{abc.clinicName}}
-      </h5>
-    </div>
+          {{ abc.hospName }}{{abc.clinicName}}
+        </h5>
+      </div>
 
-    <div class="hospReviews">
-      <img src="./assets/img/rating.png" alt="Ratings">
-      <span> 150 Reviews</span>
-    </div>
+      <div class="hospReviews">
+        <img src="./assets/img/rating.png" alt="Ratings">
+        <span> 150 Reviews</span>
+      </div>
 
-    
-    <div class="hospDetails">
-      <div>
-        <img src="./assets/img/location.png" alt="Location icon">
-        <span> {{ abc.hospAddr }} {{abc.clinicAddr}}<br>
+
+      <div class="hospDetails">
+        <div>
+          <img src="./assets/img/location.png" alt="Location icon">
+          <span> {{ abc.hospAddr }} {{abc.clinicAddr}}<br>
             {{ abc.city }}, B.C.
-        </span>
-      </div> 
-      <div>
+          </span>
+        </div>
+        <div>
           <img src="./assets/img/phone.png" alt="Location icon">
-          <span> 
+          <span>
             <!-- +1-604-582-4550 -->
             +1-{{ abc.phone }}
           </span>
-      </div>
-      <div>
+        </div>
+        <div>
           <img src="./assets/img/web.png" alt="Location icon">
           <a href="Website{{ abc.website }}">Website</a>
+        </div>
+      </div>
+
+      <div class="hospHours">
+        <h5>Visiting Hours</h5>
+        <div>
+          <p>Monday to Friday: 07:00 - 20:00 </p>
+          <p>Saturday and Sunday: 09:00 - 17:00</p>
+          <p>Statutory holiday hours: 09:00 - 17:00</p>
+        </div>
+      </div>
+
+      <div class="hospDepts">
+        <h5>Departments</h5>
+      </div>
+      <div class="hospheadDepts">
+        <div>{{abc.department[0]}}</div>
+        <div>{{abc.department[1]}}</div>
+        <div>{{abc.department[2]}}</div>
+        <div>{{abc.department[3]}}</div>
+        <div>{{abc.department[4]}}</div>
+
       </div>
     </div>
-
-    <div class="hospHours">
-      <h5>Visiting Hours</h5>
-      <div>
-        <p>Monday to Friday: 07:00 - 20:00 </p>
-        <p>Saturday and Sunday: 09:00 - 17:00</p>
-        <p>Statutory holiday hours: 09:00 - 17:00</p>
-    </div>
-    </div>
-
-    <div class="hospDepts"> 
-      <h5>Departments</h5>
-    </div>
-    <div class="hospheadDepts">
-      <div>{{abc.department[0]}}</div>
-      <div>{{abc.department[1]}}</div>
-      <div>{{abc.department[2]}}</div>
-      <div>{{abc.department[3]}}</div>
-      <div>{{abc.department[4]}}</div>
-      
-    </div>
   </div>
-</div>
-<div class="svg" id="rectCanvas" *ngIf="barGraph"></div>
-
-  <!-- <p id="p2">n mbsjkbcjksdbckjbsdkjcbkjsdbcjkb</p> -->
-  <!-- <div class="content">
-		<div class="wrapper col-2"><canvas id="chart-0"></canvas></div>
-		<div class="wrapper col-2"><canvas id="chart-1"></canvas></div>
-		<div class="wrapper col-2"><canvas id="chart-2"></canvas></div>
-		<div class="wrapper col-2"><canvas id="chart-3"></canvas></div>
-
-		<div class="toolbar">
-			<button onclick="toggleSmooth(this)">Smooth</button>
-			<button onclick="randomize(this)">Randomize</button>
-		</div>
-	</div>  -->
-  
- 
-
-
+  <div class="svg" *ngIf="barGraph"></div>
 </div>

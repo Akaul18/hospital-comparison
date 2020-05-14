@@ -46,8 +46,9 @@ margin-right: 0.5rem;
     max-width: 1170px;
     padding-right: 1rem;
     padding-left: 1rem;
-    margin-right: auto;
-    margin-left: auto;
+    margin:2rem auto 0;
+    // margin-right: auto;
+    // margin-left: auto;
 
 .hospdetailCard{
     margin: 1rem 1rem 3rem 1rem;
@@ -62,27 +63,36 @@ margin-right: 0.5rem;
     .hospName{
         display:inline-block;
         width: 80%;
-        margin:2rem;
-        margin-left: 0;
+        margin:1.5rem auto;
         height: 4rem;
         h5{
             margin:0;
+            padding-left:1rem;
             color:#385398;
             line-height:1.1;
             font-weight:bold;
             font-family: lato;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             text-align: left;
-            // text-align:center;
+            @media screen and (min-width:720px){
+                font-size:1.5rem;
+                padding-left:0;
+            }
+        }
+        @media screen and (min-width:720px){
+            margin:1.5rem auto 0;
         }
     }
     .hospReviews{
-        width:80%;
+        width:90%;
         // margin:0 2rem 2rem;
-        margin: 2rem;
-        margin-top: 0;
+        margin: 1rem auto;
         display:flex;
         flex-flow:row nowrap;
+        @media screen and (min-width:600px){
+            width:80%;
+            margin: 1.2rem auto;
+        }
         img{
             max-width:100%;
             height:auto;
@@ -155,7 +165,6 @@ margin-right: 0.5rem;
             text-align:center;
             font-family: lato;
             font-size: 1.5rem;
-            text-align: left;
             padding: 2rem;
         }
         p{
@@ -187,7 +196,6 @@ margin-right: 0.5rem;
     .hospDepts{
         display:inline-block;
         width: 100%;
-
         h5{
             margin:0;
             color:#385398;
@@ -196,7 +204,6 @@ margin-right: 0.5rem;
             text-align:center;
             font-family: lato;
             font-size: 1.5rem;
-            text-align: left;
             padding: 2rem;
         }
     }
@@ -204,6 +211,10 @@ margin-right: 0.5rem;
         width:100%;
         display:grid;
         grid-template-columns: 1fr;
+        h5{
+            // text-align:center;
+            margin:auto;
+        }
         @media screen and (min-width:1000px)
         {
             display:flex;
@@ -211,26 +222,16 @@ margin-right: 0.5rem;
             padding:2rem;
         }
         div{
-          width: 169px;
-// height: 42px;
-background: #fff;
-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+            width: 169px;
+            background: #fff;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 
-font-family: Lato;
-font-weight: 600;
-font-size: 17px;
-letter-spacing: 0.03em;
-// line-height: 28.8px;
-// text-align: left;
-color: #595a5b;
-
-
-            // width:150px;
-            // height:55px;
-            // font-size:0.8em;
+            font-family: Lato;
+            font-weight: 600;
+            font-size: 17px;
+            letter-spacing: 0.03em;
+            color: #595a5b;
             border-radius: 6px;
-            // line-height:50px;
-            // border:3px solid #385398;
             text-align:center;
             margin: 0 auto 2rem;
             padding:.4rem;
@@ -247,12 +248,3 @@ color: #595a5b;
 .Main-Compare{
     text-align: center;
 }
-// .svg{
-//     height:550px;
-// }
-// .svg{
-//     text-align:center;
-//     width:500px;
-//     height:500px;
-//     margin:0 auto;
-// }

@@ -14,8 +14,8 @@ export class AdvancedSearchComponent implements OnInit {
 
   query1: String;
   query2: String;
-  url:any;
-  url2:any;
+  url: any;
+  url2: any;
   displaydata: any;
   maindata: any;
   querydata: any;
@@ -28,12 +28,12 @@ export class AdvancedSearchComponent implements OnInit {
   burnaby: any;
   surrey: any;
   langley: any;
-  richmond : any;
+  richmond: any;
   cardiology: any;
   neurology: any;
   general: any;
   dermatology: any
-  dental:any;
+  dental: any;
 
 
   hospital_name: String;
@@ -42,13 +42,13 @@ export class AdvancedSearchComponent implements OnInit {
   hospital_phone: Number;
   website_link: String;
   hospCheck: String;
-  count:any =0;
+  count: any = 0;
 
 
 
 
-showhide = false;
-comparepressed= false;
+  showhide = false;
+  comparepressed = false;
 
   filtertoggle() {
 
@@ -58,15 +58,15 @@ comparepressed= false;
   }
 
 
-  constructor(public dataService: DataService,public router: Router, public route: ActivatedRoute, public http: HttpClient) {
+  constructor(public dataService: DataService, public router: Router, public route: ActivatedRoute, public http: HttpClient) {
 
     // console.log(this.query2);
     this.query1 = '';
     this.query2 = '';
-    // this.url = "http://localhost:3000/searchQuery";
-    this.url = "http://hospicheck.jyotsarup.wmdd.ca/searchQuery";
-    // this.url2 = "http://localhost:3000/searchQueryFilter";
-    this.url2 = "http://hospicheck.jyotsarup.wmdd.ca/searchQueryFilter";
+    this.url = "http://localhost:3000/searchQuery";
+    // this.url = "http://hospicheck.jyotsarup.wmdd.ca/searchQuery";
+    this.url2 = "http://localhost:3000/searchQueryFilter";
+    // this.url2 = "http://hospicheck.jyotsarup.wmdd.ca/searchQueryFilter";
     this.maindata;
     this.hospCheck;
     this.querydata;
@@ -82,93 +82,91 @@ comparepressed= false;
     this.arr = [];
     // this.hospital = '';
 
-   }
+  }
 
   ngOnInit() {
 
     if (window.matchMedia('(min-width: 810px)').matches) {
       this.showhide = true;
-     }
-      let query1 = this.route.snapshot.queryParamMap.get('searchinput');
+    }
+    let query1 = this.route.snapshot.queryParamMap.get('searchinput');
 
-      let query2 = this.route.snapshot.queryParamMap.get('searchcity');
+    let query2 = this.route.snapshot.queryParamMap.get('searchcity');
 
-      this.http.post(this.url,{searchinput:query1,searchcity:query2}).toPromise().then(data =>
-      {
+    this.http.post(this.url, { searchinput: query1, searchcity: query2 }).toPromise().then(data => {
 
-        this.maindata = data;
+      this.maindata = data;
 
-      });
+    });
+  }
+
+  //*******we could also pass the appended hospName as the div id*************//
+  //****then every div will have the hospname as id and it will be easier to process further***//
+
+  updateSearch(hospital: any, walkin: any, vancouver: any, burnaby: any, surrey: any, langley: any, cardiology: any, ent: any, gas: any, gynae: any, ortho: any) {
+    let obj1 =
+    {
+      hospital: hospital.checked,
+      walkin: walkin.checked,
+      vancouver: vancouver.checked,
+      burnaby: burnaby.checked,
+      surrey: surrey.checked,
+      langley: langley.checked,
+      // richmond : richmond.checked,
+      cardiology: cardiology.checked,
+      ent: ent.checked,
+      gas: gas.checked,
+      gynae: gynae.checked,
+      ortho: ortho.checked,
+      hospital1: hospital.value,
+      walkin1: walkin.value,
+      vancouver1: vancouver.value,
+      burnaby1: burnaby.value,
+      surrey1: surrey.value,
+      langley1: langley.value,
+      // richmond1 : richmond.value,
+      cardiology1: cardiology.value,
+      ent1: ent.value,
+      gas1: gas.value,
+      gynae1: gynae.value,
+      ortho1: ortho.value
     }
 
-    //*******we could also pass the appended hospName as the div id*************//
-    //****then every div will have the hospname as id and it will be easier to process further***//
+    this.hospCheck = hospital.checked;
 
-    updateSearch(hospital: any, walkin: any,vancouver: any,burnaby: any,surrey: any,langley: any,cardiology: any,ent: any,gas: any,gynae: any,ortho:any)
-    { 
-      let obj1 =
-      {
-        hospital : hospital.checked,
-        walkin : walkin.checked,
-        vancouver : vancouver.checked,
-        burnaby : burnaby.checked,
-        surrey : surrey.checked,
-        langley : langley.checked,
-        // richmond : richmond.checked,
-        cardiology : cardiology.checked,
-        ent : ent.checked,
-        gas : gas.checked,
-        gynae : gynae.checked,
-        ortho : ortho.checked,
-        hospital1 : hospital.value,
-        walkin1 : walkin.value,
-        vancouver1 : vancouver.value,
-        burnaby1 : burnaby.value,
-        surrey1 : surrey.value,
-        langley1 : langley.value,
-        // richmond1 : richmond.value,
-        cardiology1 : cardiology.value,
-        ent1 : ent.value,
-        gas1 : gas.value,
-        gynae1 : gynae.value,
-        ortho1 : ortho.value
-      }
-      
-      this.hospCheck = hospital.checked;
+    this.http.post(this.url2, obj1).toPromise().then(data => {
 
-      this.http.post(this.url2,obj1).toPromise().then(data=>{
-        
-        this.maindata = data;
-        // console.log(data);
-      });
-    }
+      this.maindata = data;
+      // console.log(data);
+    });
+  }
 
-    addtocompare(cmp: String){
-      
-      this.comparepressed= true;
-      
-      if(this.count==0){
-      this.abc= cmp;
+  addtocompare(cmp: String) {
+
+    this.comparepressed = true;
+
+    if (this.count == 0) {
+      this.abc = cmp;
       // console.log(this.abc);
       this.count++;
-      }
-      else if(this.count==1){
-      this.xyz = cmp; 
+    }
+    else if (this.count == 1) {
+      this.xyz = cmp;
       this.count = 0;
-      }
-      else{
-        return false;
-      }
-      // this.count++;
     }
-
-    
-    compareData(){
-
-      this.router.navigate(['/compare'], {queryParams: {hosp1: this.abc.textContent, hosp2:this.xyz.textContent, hospCheck1: this.hospCheck}});
-      
-
-      }
-
+    else {
+      return false;
     }
+    // this.count++;
+  }
+
+
+  compareData() {
+
+    this.router.navigate(['/compare'], { queryParams: { hosp1: this.abc.textContent, hosp2: this.xyz.textContent, hospCheck1: this.hospCheck } });
+
+
+  }
+
+}
 

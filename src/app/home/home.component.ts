@@ -12,65 +12,53 @@ import { DataService } from '../data.service';
   styleUrls: ['./home.component.scss']
 })
 
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
   query1: String;
   query2: String;
-  url:any;
+  url: any;
   postData: any;
   hospNames: any;
   mainData: any;
   imagePath: any;
-  abc(){
+  abc() {
 
-    return "hello" ;
+    return "hello";
   }
 
-  constructor(private http: HttpClient, public router: Router, public dataService: DataService)
-  {
+  constructor(private http: HttpClient, public router: Router, public dataService: DataService) {
     this.query1 = '';
     this.query2 = '';
     this.mainData = [];
     this.imagePath = [];
-    // this.url = "http://localhost:3000/searchQuery";
-    // this.url = "http://hospicheck.giriksoni.wmdd.ca/searchQuery";
-    this.url = "http://hospicheck.jyotsarup.wmdd.ca/searchQuery";
+    this.url = "http://localhost:3000/searchQuery";
   }
 
-  // @Output() deptEvent = new EventEmitter<any>();
+  post() {
 
-    post() {
-
-      if(this.query2=="" || this.query2=="null")
-      {
-        console.log("City is empty");
-        return false;
-      }
-
-       this.http.post(this.url,{searchinput:this.query1,searchcity:this.query2}).toPromise().then(data =>
-        {
-          this.router.navigate(['/advanced-search'], {queryParams: {searchinput: this.query1,searchcity:this.query2}});
-        });
-
+    if (this.query2 == "" || this.query2 == "null") {
+      console.log("City is empty");
+      return false;
     }
 
-    async singleView(hospName:any)
-    {
-      // console.log("hello");
-      await this.router.navigate(['/single-hospital-view'], {queryParams: {hospName: hospName}});
-    }
+    this.http.post(this.url, { searchinput: this.query1, searchcity: this.query2 }).toPromise().then(data => {
+      this.router.navigate(['/advanced-search'], { queryParams: { searchinput: this.query1, searchcity: this.query2 } });
+    });
 
-    async ngOnInit(){
-      this.hospNames = await this.http.get(this.url).toPromise().then((data)=>{
-
-        console.log(data);
-        this.mainData = data;
-      });
-
-      // this.imagePath = [{"imageP":"./assets/img/reviewHome1.png"},{"imageP":"./assets/img/reviewHome2.png"},{"imageP":"./assets/img/reviewHome3.png"}]
-      // let abcreviewChild1.children();
-    }
   }
+
+  async singleView(hospName: any) {
+    await this.router.navigate(['/single-hospital-view'], { queryParams: { hospName: hospName } });
+  }
+
+  async ngOnInit() {
+    this.hospNames = await this.http.get(this.url).toPromise().then((data) => {
+
+      console.log(data);
+      this.mainData = data;
+    });
+  }
+}
 
 
 
