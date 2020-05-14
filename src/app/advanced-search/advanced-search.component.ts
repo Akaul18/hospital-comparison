@@ -63,9 +63,11 @@ export class AdvancedSearchComponent implements OnInit {
     // console.log(this.query2);
     this.query1 = '';
     this.query2 = '';
-    this.url = "http://localhost:3000/searchQuery";
+    // this.url = "http://localhost:3000/searchQuery";
     // this.url = "http://hospicheck.jyotsarup.wmdd.ca/searchQuery";
-    this.url2 = "http://localhost:3000/searchQueryFilter";
+    this.url = "http://operator.ankurkaul.com/hospicheck/searchQuery";
+    this.url2 = "http://operator.ankurkaul.com/hospicheck/searchQueryFilter";
+    // this.url2 = "http://localhost:3000/searchQueryFilter";
     // this.url2 = "http://hospicheck.jyotsarup.wmdd.ca/searchQueryFilter";
     this.maindata;
     this.hospCheck;

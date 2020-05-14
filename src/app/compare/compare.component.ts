@@ -26,7 +26,8 @@ export class CompareComponent implements OnInit {
     this.query2 = '';
     this.hospCheck = '';
     this.maindata = '';
-    this.url = 'http://localhost:3000/searchQuery2';
+    // this.url = 'http://localhost:3000/searchQuery2';
+    this.url = 'http://operator.ankurkaul.com/hospicheck/searchQuery2';
     // this.url = 'http://hospicheck.jyotsarup.wmdd.ca/searchQuery2';
   }
 

@@ -31,7 +31,8 @@ export class HomeComponent implements OnInit {
     this.query2 = '';
     this.mainData = [];
     this.imagePath = [];
-    this.url = "http://localhost:3000/searchQuery";
+    // this.url = "http://localhost:3000/searchQuery";
+    this.url = "http://operator.ankurkaul.com/hospicheck/searchQuery";
   }
 
   post() {
